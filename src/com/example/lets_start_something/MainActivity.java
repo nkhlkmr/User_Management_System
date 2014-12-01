@@ -1,16 +1,36 @@
 package com.example.lets_start_something;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
+	EditText etusername,etpassword;
+	Button buttonlogin,buttonregister,buttonforget;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		buttonlogin=(Button) findViewById(R.id.buttonlogin);
+		buttonregister=(Button) findViewById(R.id.buttonregister);
+		buttonforget=(Button) findViewById(R.id.buttonforget);
+		
+		buttonregister.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				  Intent intent = new Intent(MainActivity.this, Registration.class);
+		            startActivity(intent);
+			}
+		});
 	}
 
 	@Override
@@ -31,4 +51,6 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	
 }
